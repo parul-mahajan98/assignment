@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Update Driver</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Vehicle Management System</h1>
+		<hr>
+		<h2>Update Driver</h2>
+
+		<form action="#" th:action="@{/saveDriver}" th:object="${driver}"
+			method="POST">
+			
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{id}" />
+			
+			<input type="text" th:field="*{firstname}" class="form-control mb-4 col-4">
+				
+				<input type="text" th:field="*{lastname}" class="form-control mb-4 col-4">
+				
+				<input type="text" th:field="*{dob}" class="form-control mb-4 col-4">
+				
+				<input type="text" th:field="*{address}" class="form-control mb-4 col-4">
+				
+				<form action="/action_page.php">
+				<input type="file" th:field="*{upload_License}" id="myFile" name="filename">
+				
+				<input type="text" th:field="*{license_Number}" class="form-control mb-4 col-4">
+				
+			    <input type="text" th:field="*{license_expiry_date}" class="form-control mb-4 col-4">
+			    
+			    <input type="text" th:field="*{vehicle_Assigned}" class="form-control mb-4 col-4">	
+			
+				<button type="submit" class="btn btn-info col-2"> Update Driver</button>
+		</form>
+		
+		<hr>
+		
+		<a th:href = "@{/driver}"> Back to Driver List</a>
+	</div>
+</body>
+</html>

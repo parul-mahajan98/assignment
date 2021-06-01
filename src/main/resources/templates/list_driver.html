@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Driver Details</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+        
+    </head>
+    <body>
+    
+           <!-- <div class="container"> -->
+           
+            <h1>Drivers List</h1>
+            <a th:href = "@{/showNewDriverForm}" class="btn btn-primary btn-sm mb-3"> Add Driver </a>
+            <table border="1" class = "table table-striped table-responsive-md">
+                <thead>
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Date_Of_Birth</th>
+                        <th>Address</th>
+                        <th>Upload_License</th>
+                        <th>License_Number</th>
+                        <th>License_Expirydate</th>
+                        <th>Vehicle_Assigned</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="driver : ${listDrivers}">
+                        <td th:text="${driver.firstname}"></td>
+                        <td th:text="${driver.lastname}"></td>
+                        <td th:text="${driver.dob}"></td>
+                        <td th:text="${driver.address}"></td>
+                        <td th:text="${driver.upload_License}"></td>
+                        <td th:text="${driver.license_Number}"></td>
+                        <td th:text="${driver.license_expiry_date}"></td>
+                        <td th:text="${driver.vehicle_Assigned}"></td>
+                        <td>
+                        <a th:href="@{/showFormForUpdateDriver/{id}(id=${driver.id})}" class="btn btn-primary">Update</a>
+                        <a th:href="@{/deleteDriver/{id}(id=${driver.id})}" class="btn btn-danger">Delete</a>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+         <!--   </div> -->
+        </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Update Vehicle</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Vehicle Management System</h1>
+		<hr>
+		<h2>Update Vehicle</h2>
+
+		<form action="#" th:action="@{/saveVehicle}" th:object="${vehicle}"
+			method="POST">
+			
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{id}" />
+			
+			<input type="text" th:field="*{vehicle_Name}" class="form-control mb-4 col-4">
+				
+				<input type="text" th:field="*{vehicle_Model}" class="form-control mb-4 col-4">
+				
+				<input type="text" th:field="*{vehicle_Year}" class="form-control mb-4 col-4">
+				
+				<input type="text" th:field="*{chassis_Number}" class="form-control mb-4 col-4">
+				
+				<input type="text" th:field="*{registration_Number}" class="form-control mb-4 col-4">
+				
+				<input type="text" th:field="*{fuel_Type}" class="form-control mb-4 col-4">
+				
+				<button type="submit" class="btn btn-info col-2"> Update Vehicle</button>
+		</form>
+		
+		<hr>
+		
+		<a th:href = "@{/vehicle}"> Back to Vehicle List</a>
+	</div>
+</body>
+</html>
